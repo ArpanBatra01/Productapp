@@ -15,7 +15,7 @@ function ProductSearch() {
 
   const [search, setSearch] = useState("");
 
-  const [product, setProduct] = useState([
+const [product, setProduct] = useState([
     {
       id:1,
       name: "TechFit Smartwatch Series X",
@@ -28,7 +28,7 @@ function ProductSearch() {
     ],
 
     
- 
+   
      
     },
     {
@@ -147,6 +147,12 @@ function ProductSearch() {
 
   return (
     <>
+     <ul>
+        
+
+        <li><a href="/cart">cart</a></li>
+        <li><a href="/login">login</a></li>
+      </ul>
       <Search
         placeholder="input search text"
         allowClear

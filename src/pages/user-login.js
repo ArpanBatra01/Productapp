@@ -1,16 +1,44 @@
 import { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import ReactDOM from "react-dom/client";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
   
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`the email you enter was:${email}`);
+    // alert(`the email you enter was:${email}`);
+    axios.get('https:fakestoreapi.com/users')
+    .then(function (response) {
+      console.log(response.data);
+
+      let users=response.data;
+
+      let userExist = users.find((elem)=> elem?.email == email && elem?.password == password)
+
+      if(userExist == undefined)
+      {
+        alert("Email and Password are incorrect")
+      }
+      else{
+        navigate("/home")
+
+      }
+
+
+      console.log("is exist", userExist)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
   };
   return (
+ 
     <form onSubmit={handleSubmit}>
       <label>Enter your email:
         <span><input

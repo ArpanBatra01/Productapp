@@ -134,11 +134,19 @@ const [product, setProduct] = useState([
       setFilterProducts(filteredData);
     } else {
       // reset to all product state
+      
       setFilterProducts(product);
+      
       if (count > 20) {
         alert("search limit can exceed");
       }
+    
     }
+   
+ 
+    
+    
+   
   }, [search, count]);
 
   function add() {

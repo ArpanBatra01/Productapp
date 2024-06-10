@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 
+
 function ProductSearch() {
 
 
@@ -110,6 +111,7 @@ function ProductSearch() {
 
   const [selectedProduct, setSelectedProduct] = useState("");
   const [searchResult, setSearchResult] = useState("");
+  const [addToCart, setAddTocart] = useState([]);
 
 
 
@@ -123,6 +125,8 @@ function ProductSearch() {
   }
   const location = useLocation()
   console.log(location.pathname)
+
+
 
 
 
@@ -143,31 +147,7 @@ function ProductSearch() {
 
     setSearchResult(result)
 
-
-
-
-
-
-
-
-
   }, [])
-
-
-
-
-
-
-  // useEffect(()=>{
-  //   console.log(selectedProduct)
-  //   let findProduct = product.find((element)=> element.name == selectedProduct)
-  //   console.log(findProduct)
-  //   setSearchResult(findProduct)
-
-
-
-
-  // },[selectedProduct]);
 
   return (
     <>
@@ -177,33 +157,20 @@ function ProductSearch() {
         <li><a href="/cart">cart</a></li>
         <li><a href="/login">login</a></li>
       </ul>
-      {/* <label>
-        Select the product:
-        <span>
-          <select
-            name="Select the product"
-            value={selectedProduct}
-            onChange={(e) => setSelectedProduct(e.target.value)}
-          >
-           {
-            product.map((element, index) => {
-              return <option value={element.name}> {element.name} </option>
-            })
-           }
-          </select>
-        </span>
-      </label> */}
-      {/* <button type="submit" onClick={handleSearch}>submit</button>
-      <button type="button" onClick={reset}>Reset</button> */}
+      
       <div><label>Output:</label></div>
       <div>Name:{searchResult?.name}</div>
       <div>Price:{searchResult?.price}</div>
       <div>Description:{searchResult?.description}</div>
       <div>features:{searchResult?.features}</div>
-
-
-
       <div><img src={searchResult?.image}></img></div>
+
+      
+      
+      <button type="button" >addToCart</button>
+      
+
+  
 
 
 

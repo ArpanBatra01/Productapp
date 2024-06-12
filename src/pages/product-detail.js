@@ -117,7 +117,7 @@ function ProductSearch() {
 
 
   const handleAddToCart=()=>{
-    let strArray = location.pathname.split("/");
+    let strArray = location.pathname.split("/cart");
     
 
     let pid = strArray[2];

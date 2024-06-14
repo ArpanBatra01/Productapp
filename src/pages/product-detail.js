@@ -104,6 +104,10 @@ function ProductSearch() {
 
   const [searchResult, setSearchResult] = useState("");
 
+  const navigate=useNavigate();
+
+
+
   
 
   const handleSearch = () => {
@@ -114,10 +118,11 @@ function ProductSearch() {
   };
   const location = useLocation();
   console.log(location.pathname);
-
+                                          
 
   const handleAddToCart=()=>{
     let strArray = location.pathname.split("/");
+    navigate('/cart')
     
 
     let pid = strArray[2];
@@ -172,11 +177,9 @@ function ProductSearch() {
       <div>Price:{searchResult?.price}</div>
       <div>Description:{searchResult?.description}</div>
       <div>features:{searchResult?.features}</div>
-      <div>
-        <img src={searchResult?.image}></img>
-      </div>
+      <div><img src={searchResult?.image}></img></div>
 
-      <button  type="button" onClick={handleAddToCart}  className="cart" >addToCart</button>
+      <button  type="button" onClick={handleAddToCart}  className="cart"> addToCart</button>
 
      
     </>

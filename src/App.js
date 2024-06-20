@@ -5,10 +5,12 @@ import Login from "./pages/user-login";
 
 import FavouriteProductCount from "./pages/favourite-product-count";
 
+
 import ProductDetail from "./pages/product-detail";
 import FavouriteProductPage from "./pages/favourite-product-page";
-import Cart from "./pages/cart";
 import Home from "./pages/home";
+import Cart from "./pages/cart";
+
 
 
 import "bootstrap/dist/css/bootstrap.min.css";

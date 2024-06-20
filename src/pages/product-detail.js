@@ -122,6 +122,7 @@ function ProductSearch() {
 
   const handleAddToCart=()=>{
     let strArray = location.pathname.split("/");
+    console.log(strArray);
     navigate('/cart')
     
 
@@ -178,7 +179,7 @@ function ProductSearch() {
       <div>Description:{searchResult?.description}</div>
       <div>features:{searchResult?.features}</div>
       <div><img src={searchResult?.image}></img></div>
-
+      
       <button  type="button" onClick={handleAddToCart}  className="cart"> addToCart</button>
 
      

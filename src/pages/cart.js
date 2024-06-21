@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { json } from "react-router-dom";
-import ProductSearch from "./product-detail";
+
+
 import Search from "antd/es/transfer/search";
 
 function Cart() {
   const [cart, setCart] = useState("");
   const [result, setResult] = useState([]);
-  const [products, setProduct] = useState([
+  const [products, setProducts] = useState([
     {
       id: 1,
       name: "TechFit Smartwatch Series X",
@@ -124,13 +124,12 @@ function Cart() {
           cartProducts.push(product);
         }
       });
-
       // LOOP END
 
       setResult(cartProducts);
     }
   }, []);
-
+                
   return (
     <>
       <div>
@@ -140,6 +139,9 @@ function Cart() {
           </li>
           <li>
             <a href="/Product-detail">Product-detail</a>
+          </li>
+          <li>
+            <a href="/favourite-product-page">Favourite-Products</a>
           </li>
         </ul>
         <h2>Cart</h2>
@@ -158,8 +160,7 @@ function Cart() {
                 {product.description}
               </p>
               <p>
-                <span className="title">Product features:</span>{" "}
-                {product.features}
+                <span className="title">Product features:</span>{product.features}
               </p>
               <p>
                 <span className="title">Product Price:</span> ${product.price}

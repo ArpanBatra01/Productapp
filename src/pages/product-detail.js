@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { json, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { HeartTwoTone } from "@ant-design/icons";
+import { createFromIconfontCN } from "@ant-design/icons";
+import { Space } from "antd";
+const IconFont = createFromIconfontCN({
+  scriptUrl: [
+    "//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js",
+    // icon-javascript, icon-java, icon-shoppingcart (overridden)
+    "//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js", // icon-shoppingcart, icon-python
+  ],
+});
 
 function ProductSearch() {
   const [product, setProduct] = useState([
@@ -104,11 +114,7 @@ function ProductSearch() {
 
   const [searchResult, setSearchResult] = useState("");
 
-  const navigate=useNavigate();
-
-
-
-  
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log("hello");
@@ -118,29 +124,40 @@ function ProductSearch() {
   };
   const location = useLocation();
   console.log(location.pathname);
-                                          
 
-  const handleAddToCart=()=>{
+  const handleAddToCart = () => {
     let strArray = location.pathname.split("/");
     console.log(strArray);
-    navigate('/cart')
-    
+    navigate("/cart");
 
     let pid = strArray[2];
-    let cartItems= JSON.parse(localStorage.getItem("cartItems"))  ?? []
-    if(cartItems.includes(pid)){
-
-    }else{
-      
-      cartItems.push(pid)
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
+    if (cartItems.includes(pid)) {
+    } else {
+      cartItems.push(pid);
     }
-    console.log(cartItems)
+    console.log(cartItems);
 
-    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
 
-  
+  const handleAddToFavourite = () => {
+    let strArray = location.pathname.split("/");
+    console.log(strArray);
+    navigate("/favourite-product-page");
 
-  }
+    let pid = strArray[2];
+    let favouriteItems =
+      JSON.parse(localStorage.getItem("favouriteItems")) ?? [];
+
+    if (favouriteItems.includes(pid)) {
+    } else {
+      favouriteItems.push(pid);
+    }
+    console.log(favouriteItems);
+
+    localStorage.setItem("favouriteItems", JSON.stringify(favouriteItems));
+  };
 
   useEffect(() => {
     let strArray = location.pathname.split("/");
@@ -172,17 +189,33 @@ function ProductSearch() {
       </ul>
 
       <div>
-        <label>Output:</label>
+        <label className="title">Output:</label>
       </div>
-      <div>Name:{searchResult?.name}</div>
-      <div>Price:{searchResult?.price}</div>
-      <div>Description:{searchResult?.description}</div>
-      <div>features:{searchResult?.features}</div>
-      <div><img src={searchResult?.image}></img></div>
-      
-      <button  type="button" onClick={handleAddToCart}  className="cart"> addToCart</button>
+       <div><span className="title">Name:</span>{searchResult?.name}</div>
+      <div><span className="title">Price:</span>{searchResult?.price}</div>
+      <div><span className="title">Description:</span>{searchResult?.description}</div>
+      <div><span className="title">features:</span>{searchResult?.features}</div>
+      <div>
+        <img src={searchResult?.image}></img>
+      </div>
 
-     
+      <button type="button" onClick={handleAddToCart} className="cart">
+        <space>
+          <IconFont type="icon-shoppingcart" />
+        </space>
+        addToCart
+      </button>
+
+      <button 
+        type="button"
+        onClick={handleAddToFavourite}
+        className="favouriteProduct"
+      >
+        <space>
+          <HeartTwoTone twoToneColor="#eb2f96" />
+        </space>
+        addToFavourite
+      </button>
     </>
   );
 }

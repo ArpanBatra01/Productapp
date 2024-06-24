@@ -171,6 +171,8 @@ function ProductSearch() {
     console.log("result", result);
 
     setSearchResult(result);
+
+    
   }, []);
 
   return (
@@ -191,10 +193,22 @@ function ProductSearch() {
       <div>
         <label className="title">Output:</label>
       </div>
-       <div><span className="title">Name:</span>{searchResult?.name}</div>
-      <div><span className="title">Price:</span>{searchResult?.price}</div>
-      <div><span className="title">Description:</span>{searchResult?.description}</div>
-      <div><span className="title">features:</span>{searchResult?.features}</div>
+      <div>
+        <span className="title">Name:</span>
+        {searchResult?.name}
+      </div>
+      <div>
+        <span className="title">Price:</span>
+        {searchResult?.price}
+      </div>
+      <div>
+        <span className="title">Description:</span>
+        {searchResult?.description}
+      </div>
+      <div>
+        <span className="title">features:</span>
+        {searchResult?.features}
+      </div>
       <div>
         <img src={searchResult?.image}></img>
       </div>
@@ -206,10 +220,10 @@ function ProductSearch() {
         addToCart
       </button>
 
-      <button 
+      <button
         type="button"
         onClick={handleAddToFavourite}
-        className="favouriteProduct"
+        className="favourite"
       >
         <space>
           <HeartTwoTone twoToneColor="#eb2f96" />

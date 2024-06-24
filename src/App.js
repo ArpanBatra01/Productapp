@@ -3,17 +3,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/user-login";
 
-import FavouriteProductCount from "./pages/favourite-product-count";
 
 
 import ProductDetail from "./pages/product-detail";
 import FavouriteProductPage from "./pages/favourite-product-page";
 import Home from "./pages/home";
-import Cart from "./pages/cart";
 
 
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import Cart from "./pages/Cart";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
@@ -23,10 +21,7 @@ function App() {
           <Route index element={<Login />} />
 
           <Route path="login" element={<Login />} />
-          <Route
-            path="favourite-product-count"
-            element={<FavouriteProductCount />}
-          />
+     
 
           <Route path="product-detail" element={<ProductDetail />} />
           <Route path="product-detail/:id" element={<ProductDetail />} />

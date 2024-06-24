@@ -174,11 +174,11 @@ const [product, setProduct] = useState([
         onSearch={onSearch}
       />
       <p>Search Count:{count}</p>
-      <Row md={4}>
+      <Row className="m-0" md={4}>
 
       {filterProducts.map((product, index, arr) => {
         return (
-          <Col onClick={() => navigate(`/product-detail/${product.id}`) } key={index} className="product-detail">
+          <Col md={3} onClick={() => navigate(`/product-detail/${product.id}`) } key={index} className="product-detail">
             <p>
               <img src={product.image}></img>
             </p>

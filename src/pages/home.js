@@ -1,5 +1,5 @@
 
-import { Input } from "antd";
+import { Input, Result } from "antd";
 import { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -14,6 +14,7 @@ function ProductSearch() {
   
 
   const [search, setSearch] = useState("");
+  
 
 const [product, setProduct] = useState([
     {
@@ -124,7 +125,7 @@ const [product, setProduct] = useState([
   const[count,setCount]=useState(0);
 
   useEffect(() => {
-    if (search.length && count <= 20) {
+    if (search.length && count <= 20 ) {
       // write filter logic and update filter product state
 
       let filteredData = product.filter(function (el) {
@@ -137,29 +138,33 @@ const [product, setProduct] = useState([
       
       setFilterProducts(product);
       
-      if (count > 20) {
+      
+      if (count > 20  ) {
         alert("search limit can exceed");
       }
+     
+        
+    
     
     }
+    
    
- 
-    
-    
    
   }, [search, count]);
 
+ 
   function add() {
     setCount(count + 1);
   }
 
   return (
     <>
-     <ul>
-        
+     <ul>    
 
         <li><a href="/cart">cart</a></li>
         <li><a href="/login">login</a></li>
+        <li><a href="/favourite-product-page">My favourite Page</a></li>
+        
       </ul>
       <Search
         placeholder="input search text"

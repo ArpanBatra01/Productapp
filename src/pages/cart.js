@@ -5,6 +5,7 @@ import Search from "antd/es/transfer/search";
 
 function Cart() {
   const [cart, setCart] = useState("");
+  const [cartProducts,setCartProducts]=useState("");
   const [result, setResult] = useState([]);
   const [products, setProducts] = useState([
     {
@@ -111,6 +112,9 @@ function Cart() {
     localStorage.removeItem("cartItems");
   };
 
+
+
+
   useEffect(() => {
     let storedCart = JSON.parse(localStorage.getItem("cartItems")); // [1, 2, 3, 4, 5]
     if (storedCart?.length) {
@@ -167,10 +171,13 @@ function Cart() {
               </p>
             </li>
           ))}
+
         </ul>
+       
 
         <button onClick={clearCart}>clearCart</button>
       </div>
+     
     </>
   );
 }

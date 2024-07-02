@@ -10,6 +10,8 @@ import ProductDetail from "./pages/product-detail";
 import FavouriteProductPage from "./pages/favourite-product-page";
 import Home from "./pages/home";
 import Cart from "./pages/cart";
+import Gallery from "./pages/gallery";
+
 
 
 
@@ -36,10 +38,12 @@ function App() {
           />
           <Route path="home" element={<Home />} />
           <Route path="/" element={<Login />} />
+          <Route path="Gallery" element={<Gallery />} />
 
           
           
           <Route path="cart" element={<Cart />} />
+          
           {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
       </BrowserRouter>
